@@ -1,177 +1,90 @@
-☁️ CloudOps Enterprise Platform
-A cloud and DevOps project demonstrating application development, containerization, infrastructure as code, CI/CD automation, serverless computing, cloud deployment, monitoring, and security using AWS, Docker, Terraform, Python, Flask, and GitHub Actions.
+# ☁️ CloudOps Enterprise Platform
 
-📌 Overview
-The CloudOps Enterprise Platform is a hands-on cloud and DevOps project built to demonstrate the application lifecycle from development and containerization to cloud deployment, automation, monitoring, and security.
-The project includes a Python Flask microservice, Docker containerization, GitHub Actions workflow automation, Terraform-based infrastructure configuration, and AWS cloud services.
+A cloud-based application and DevOps project demonstrating application development, containerization, infrastructure as code, CI/CD automation, serverless computing, cloud deployment, monitoring, and security using AWS and Terraform.
 
-🏗️ Architecture
-The project combines application, container, cloud, automation, monitoring, and security components.
-High-level workflow:
-Application
-    ↓
-GitHub
-    ↓
-GitHub Actions
-    ↓
-Docker
-    ↓
-AWS Cloud Infrastructure
-    ↓
-Deployment & APIs
-    ↓
-Monitoring & Auditing
+---
 
-🛠️ Technologies Used
+## 📌 Project Overview
 
-| Technology | Purpose |
-| Python | Application development |
-| Flask | Web application / microservice |
-| Docker | Containerization |
-| GitHub | Source control |
-| GitHub Actions | CI/CD automation |
-| Terraform | Infrastructure as Code |
-| AWS EC2 | Cloud compute |
-| AWS Lambda | Serverless application |
-| API Gateway | API exposure |
-| Amazon RDS | Relational database |
-| Amazon S3 | Object storage |
-| Amazon CloudWatch | Monitoring |
-| AWS CloudTrail | Auditing and activity logging |
+The **CloudOps Enterprise Platform** is a cloud and DevOps project developed to demonstrate how a Python-based application can be developed, containerized, automated, deployed, monitored, and managed using modern cloud technologies.
 
-☁️ AWS Services
+The project combines:
 
-Amazon EC2
-Used as a cloud compute environment for application deployment and testing.
+- Python Flask application development
+- Docker containerization
+- GitHub Actions CI/CD
+- Terraform Infrastructure as Code
+- AWS cloud services
+- Serverless API development
+- Cloud monitoring and logging
+- Cloud security configuration
 
- AWS Lambda
-Used to demonstrate serverless application execution through the `cloudops-serverless-api` function.
+The goal of the project is to understand and demonstrate the complete workflow from **source code → containerization → automation → cloud deployment → monitoring and security**.
 
-Amazon API Gateway
-Used to expose the serverless API. The `/dev/status` endpoint was tested successfully.
+---
 
-Amazon RDS
-Used to demonstrate managed relational database infrastructure and database networking.
+## 🎯 Objectives
 
-Amazon S3
-Used for cloud object storage, with server-side encryption enabled.
+The main objectives of this project are:
 
-Amazon CloudWatch
-Used to monitor AWS resources and application-related metrics.
+1. Develop a lightweight web application using Flask.
+2. Containerize the application using Docker.
+3. Automate development workflows using GitHub Actions.
+4. Use Terraform for Infrastructure as Code.
+5. Deploy and test applications using AWS cloud services.
+6. Implement a serverless API using AWS Lambda and API Gateway.
+7. Configure cloud storage and database services.
+8. Monitor cloud resources using Amazon CloudWatch.
+9. Maintain AWS activity logs using AWS CloudTrail.
+10. Apply basic cloud security practices using security groups, encryption, and access controls.
+11. Document the complete cloud deployment and DevOps workflow.
 
-AWS CloudTrail
-Used for AWS activity logging and auditing.
+---
 
- 📁 Project Structure
-CloudOps-microservices/
-│
-├── app.py
-├── Dockerfile
-├── requirements.txt
-├── README.md
-├── .gitignore
-│
-├── .github/
-│   └── workflows/
-│       └── <workflow-file>
-│
-├── terraform/
-│   ├── main.tf
-│   └── .terraform.lock.hcl
-│
-└── docs/
-    ├── architecture.png
-    ├── aws-infrastructure.md
-    ├── deployment.md
-    ├── monitoring.md
-    ├── security.md
-    └── screenshots/
-        ├── ec2.png
-        ├── lambda.png
-        ├── api-gateway.png
-        ├── rds.png
-        ├── s3.png
-        ├── cloudwatch.png
-        └── cloudtrail.png
+## 🏗️ System Architecture
 
-🐳 Docker
-The Flask application is containerized using Docker.
+The project follows a cloud-based architecture where the application source code is maintained in GitHub, containerized using Docker, and supported by automated CI/CD workflows.
 
-Build the image
-docker build -t cloudops-microservice .
+```text
+                         ┌─────────────────────┐
+                         │       GitHub        │
+                         │   Source Code       │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │   GitHub Actions    │
+                         │      CI/CD          │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │       Docker        │
+                         │  Containerization   │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │   Flask Application  │
+                         └──────────┬──────────┘
+                                    │
+                    ┌───────────────┼────────────────┐
+                    │               │                │
+                    ▼               ▼                ▼
+                 AWS EC2       API Gateway       AWS Lambda
+                    │               │                │
+                    │               └────────────────┘
+                    │
+                    ├──────────► Amazon RDS
+                    │
+                    └──────────► Amazon S3
 
-Run the container
-docker run -p 5000:5000 cloudops-microservice
+                    AWS CloudWatch
+                         │
+                         ▼
+                    Monitoring
 
-
-The application can then be accessed locally at:
-http://localhost:5000
-
-
-🔄 CI/CD
-GitHub Actions is used to automate the configured development workflow.
-The workflow files are located in:
-.github/workflows/
-The workflow configuration can be reviewed directly in the repository.
-
-🏗️ Terraform
-Terraform is used to demonstrate Infrastructure as Code (IaC)
-
-Terraform configuration is maintained in:
-terraform/
-
-Typical Terraform workflow:
-
-terraform init
-terraform plan
-terraform apply
-
-Terraform state files and the `.terraform` directory are kept outside the GitHub repository.
-
-🚀 How to Run
-
-Prerequisites
-- Python 3.x
-- Docker
-- Git
-
-For cloud infrastructure work:
-- AWS account
-- AWS CLI
-- Terraform
-
-Clone the repository
-git clone https://github.com/bhu27/cloudops-microservice.git
-cd cloudops-microservice
-
-
-Install dependencies
-pip install -r requirements.txt
-
-Run the Flask application
-python app.py
-
-Or run using Docker
-docker build -t cloudops-microservice .
-docker run -p 5000:5000 cloudops-microservice
-
-
-📸 Screenshots & Documentation
-Detailed documentation and AWS screenshots are available in the `docs/` directory.
-- [AWS Infrastructure](docs/aws-infrastructure.md)
-- [Deployment](docs/deployment.md)
-- [Monitoring](docs/monitoring.md)
-- [Security](docs/security.md)
-- [Architecture](docs/architecture.png)
-
-Screenshots of the AWS environment are available in:
-docs/screenshots/
-
-🔗 Project Links
-
-AWS API Gateway
-https://wqdpwiyp87.execute-api.ap-south-1.amazonaws.com/dev/status
-
-OutSystems Dashboard
-https://personal-pmcipamw-dev.outsystems.app/CloudOpsEnterprisePlatform_1/
-
+                    AWS CloudTrail
+                         │
+                         ▼
+                      Auditing
